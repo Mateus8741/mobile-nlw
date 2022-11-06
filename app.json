@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "nlwcompamobile",
+    "slug": "nlwcompamobile",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
