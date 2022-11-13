@@ -6,6 +6,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { Fontisto } from "@expo/vector-icons";
 
 import Logo from "../assets/logo.svg";
+import { Platform } from "react-native";
 
 export function SignIn() {
   const { signIn } = useAuth();
@@ -13,13 +14,27 @@ export function SignIn() {
   return (
     <Center flex={1} bgColor="gray.900" padding={7}>
       <Logo width={212} height={40} />
-      <Button
-        type="SECONDARY"
-        title="ENTRAR COM O GOOGLE"
-        leftIcon={<Icon as={Fontisto} name="google" color="white" size="md" />}
-        mt="12"
-        onPress={signIn}
-      />
+      {Platform.OS === "ios" ? (
+        <Button
+          type="APPLE"
+          title="CONTINUAR COM APPLE"
+          leftIcon={
+            <Icon as={Fontisto} name="apple" color="black" size="lg" mb="1.5" />
+          }
+          mt="12"
+          onPress={signIn}
+        />
+      ) : (
+        <Button
+          type="SECONDARY"
+          title="CONTINUAR COM GOOGLE"
+          leftIcon={
+            <Icon as={Fontisto} name="google" color="white" size="lg" mb="1" />
+          }
+          mt="12"
+          onPress={signIn}
+        />
+      )}
       <Text
         color="white"
         fontSize="12"

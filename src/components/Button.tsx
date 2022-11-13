@@ -2,7 +2,7 @@ import { Button as ButtonNativeBase, IButtonProps, Text } from "native-base";
 
 interface Props extends IButtonProps {
   title: string;
-  type?: "PRIMARY" | "SECONDARY";
+  type?: "PRIMARY" | "SECONDARY" | "APPLE";
 }
 
 export function Button({ title, type, ...rest }: Props) {
@@ -13,12 +13,23 @@ export function Button({ title, type, ...rest }: Props) {
       rounded="sm"
       fontSize="md"
       textTransform="uppercase"
-      bg={type === "SECONDARY" ? "red.500" : "yellow.500"}
+      bg={
+        type === "SECONDARY"
+          ? "red.500"
+          : type === "APPLE"
+          ? "white"
+          : "yellow.500"
+      }
       _pressed={{
-        bg: type === "SECONDARY" ? "red.600" : "yellow.600",
+        bg:
+          type === "SECONDARY"
+            ? "red.600"
+            : type === "APPLE"
+            ? "gray.200"
+            : "yellow.600",
       }}
       _loading={{
-        _spinner: { color: "white" },
+        _spinner: { color: type === "APPLE" ? "black" : "white" },
       }}
       {...rest}
     >
