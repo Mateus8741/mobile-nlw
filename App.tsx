@@ -6,6 +6,8 @@ import { NativeBaseProvider, StatusBar } from "native-base";
 import { Loading } from "@/components/Loading";
 import { SignIn } from "@/screens/SignIn";
 
+import { AuthContextProvider } from "@/contexts/AuthContext";
+
 import {
   useFonts,
   Roboto_400Regular,
@@ -22,12 +24,14 @@ export default function App() {
 
   return (
     <NativeBaseProvider theme={THEME}>
-      <StatusBar
-        barStyle="light-content"
-        backgroundColor="transparent"
-        translucent
-      />
-      {fontsLoaded ? <SignIn /> : <Loading />}
+      <AuthContextProvider>
+        <StatusBar
+          barStyle="light-content"
+          backgroundColor="transparent"
+          translucent
+        />
+        {fontsLoaded ? <SignIn /> : <Loading />}
+      </AuthContextProvider>
     </NativeBaseProvider>
   );
 }
