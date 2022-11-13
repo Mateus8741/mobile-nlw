@@ -51,7 +51,7 @@ export function AuthContextProvider({ children }: AuthProviderProps) {
 
   useEffect(() => {
     if (response?.type === "success" && response.authentication?.accessToken) {
-      signInWithGoogle(response.authentication?.accessToken);
+      signInWithGoogle(response.authentication.accessToken);
     }
   }, []);
 
