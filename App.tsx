@@ -4,7 +4,7 @@ import { THEME } from "@/styles/theme";
 import { NativeBaseProvider, StatusBar } from "native-base";
 
 import { Loading } from "@/components/Loading";
-import { Pools } from "@/screens/Pools";
+import { Routes } from "@/routes";
 
 import { AuthContextProvider } from "@/contexts/AuthContext";
 
@@ -30,7 +30,7 @@ export default function App() {
           backgroundColor="transparent"
           translucent
         />
-        {fontsLoaded ? <Pools /> : <Loading />}
+        {fontsLoaded ? <Routes /> : <Loading />}
       </AuthContextProvider>
     </NativeBaseProvider>
   );

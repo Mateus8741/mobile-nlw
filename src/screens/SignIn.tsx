@@ -9,7 +9,7 @@ import Logo from "../assets/logo.svg";
 import { Platform } from "react-native";
 
 export function SignIn() {
-  const { signIn } = useAuth();
+  const { signIn, isUserLoading } = useAuth();
 
   return (
     <Center flex={1} bgColor="gray.900" padding={7}>
@@ -23,6 +23,7 @@ export function SignIn() {
           }
           mt="12"
           onPress={signIn}
+          isLoading={isUserLoading}
         />
       ) : (
         <Button
