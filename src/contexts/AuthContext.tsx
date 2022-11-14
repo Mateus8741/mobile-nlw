@@ -68,6 +68,8 @@ export function AuthContextProvider({ children }: AuthProviderProps) {
       ] = `Bearer ${tokenResponse.data.token}`;
       const userInfoResponse = await api.get("/me");
       setUser(userInfoResponse.data.user);
+      console.log("token de auth", access_token);
+      
     } catch (error) {
       console.log(error);
       throw error;
